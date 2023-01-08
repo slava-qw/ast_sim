@@ -176,6 +176,9 @@ def prep_text_code(file_name: str) -> str:
 def difference(pair: tuple[str, str]) -> float:
     lev_d = levenshtein_distance(pair[0], pair[1])
     avg_len = 0.5 * (len(pair[0]) + len(pair[1]))
+    if avg_len == 0:
+        return 0.0
+
     diff = lev_d / avg_len
     return diff
 
